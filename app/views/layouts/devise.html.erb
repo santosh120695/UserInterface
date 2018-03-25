@@ -5,15 +5,26 @@
   <%= csrf_meta_tags %>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'login', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'login', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body>
+<div id="particles-js">
 <div class="container">
 <%= yield %>
 </div>
+</div>
 
 <script>
+  $(document).ready(
+      function () {
+          particlesJS.load('particles-js', '/assets/particles.json', function () {
+              console.log('callback - particles.js config loaded');
+          });
+
+  })
     <%if flash.present?%>
     <% flash.each do |type, message| %>
     $.notify('<%= message %>', { type: '<%= bootstrap_class_for(type) %>', template: '<div data-notify="container" class="col-sm-4 p-0">\
@@ -22,6 +33,8 @@
 </div>' });
     <% end %>
     <% end %>
+
+
 </script>
 </body>
 </html>

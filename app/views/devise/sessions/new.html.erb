@@ -1,13 +1,13 @@
 
-
+<div class="logincard">
   <div class="row">
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="col-sm-6  form-group">
+    <div class="col-sm-12  form-group">
     <%= f.input :email, required: false, autofocus: true,input_html:{class:"form-control"} %>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-6 input-field">
+    <div class="col-sm-12 input-field">
       <%= f.input :password, required: false ,input_html:{class:"form-control"} %>
     </div>
   </div>
@@ -16,8 +16,15 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+    <%= f.button :submit, "Log in",class:"btn btn-default pull-right" %>
   </div>
 <% end %>
 <%= render "devise/shared/links" %>
 </div>
+
+
+    <script>
+        $(document).ready(function(){
+
+        })
+    </script>

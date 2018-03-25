@@ -1,0 +1,19 @@
+#particles-js{
+    width: 100%;
+    height: 100%;
+    margin:0%;
+    background-color: #b61924;
+    background-image: url('');
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.logincard {
+    position: absolute;
+    top:25%;
+    left:35%;
+    background-color: #eee;
+    width:30%;
+    padding: 2%;
+}
