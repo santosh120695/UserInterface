@@ -30,39 +30,37 @@ class Header extends React.Component {
                         </NavDropdown>
                     </Nav>
                     <Nav pullRight>
-                        <NavItem eventKey={1} href="#" data-method={'delete'}>
-                            Link Right
-                        </NavItem>
-                        <NavItem eventKey={2} href="#" onClick={this.sign_out}>
-                            Link Right
+                        <NavItem eventKey={1} href="/users/sign_out" data-method="delete" rel="nofollow">
+                            Sign Out
+                            {/*<a href="/users/sign_out" data-method="delete" rel="nofollow" className="navbar-brand">Sign Out</a>*/}
                         </NavItem>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
         );
     }
-     sign_out(){
-      console.log('clicked')
-        let token=$( 'meta[name="csrf-token"]' ).attr( 'content' );
-      console.log(token)
-         axios({
-             method:"delete",
-             url:'/users/sign_out',
-             headers:{'X-CSRF-Token':token}
-         })
-             .then(function (response) {
-                 console.log(response);
-                 console.log('success');
-                 location.reload()
-
-             })
-             .catch(function (error) {
-                 console.log(error);
-                 location.reload()
-
-             });
-
-     }
+     // sign_out(){
+     //  console.log('clicked')
+     //    let token=$( 'meta[name="csrf-token"]' ).attr( 'content' );
+     //  console.log(token)
+     //     axios({
+     //         method:"delete",
+     //         url:'/users/sign_out',
+     //         headers:{'X-CSRF-Token':token}
+     //     })
+     //         .then(function (response) {
+     //             console.log(response);
+     //             console.log('success');
+     //             location.reload()
+     //
+     //         })
+     //         .catch(function (error) {
+     //             console.log(error);
+     //             location.reload()
+     //
+     //         });
+     //
+     // }
 }
 
 
