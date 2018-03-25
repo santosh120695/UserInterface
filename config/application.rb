@@ -14,7 +14,6 @@ module UserService
     config.serve_static_assets = true
     config.serve_static_files = true
     config.public_file_server.enabled
-    config.assets.digest = true
     config.assets.compile = true
 
     # Settings in config/environments/* take precedence over those specified here.
