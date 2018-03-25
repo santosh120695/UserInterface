@@ -20,5 +20,16 @@
   <div class="container">
     <%= yield %>
   </div>
+
+  <script>
+      <%if flash.present?%>
+      <% flash.each do |type, message| %>
+      $.notify('<%= message %>', { type: '<%= bootstrap_class_for(type) %>', template: '<div data-notify="container" class="col-sm-4 p-0">\
+<div class="alert alert-{0} border-{0} border-left-bold alert-dismissible">\
+<button type="button" class="close" data-notify="dismiss">×</button>{2}</div>\
+</div>' });
+      <% end %>
+      <% end %>
+  </script>
   </body>
 </html>
