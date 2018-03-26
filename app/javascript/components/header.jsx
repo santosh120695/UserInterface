@@ -40,7 +40,7 @@ function Header(props) {
             <AppBar position="absolute" className={classes.appBar}>
                 <Toolbar>
                     <Typography variant="title" color="inherit" noWrap className={classes.flex}>
-                        Clipped drawer
+                        MLAS
                     </Typography>
                     <Button color="inherit" href="/users/sign_out" data-method="delete">Log Out</Button>
                 </Toolbar>
