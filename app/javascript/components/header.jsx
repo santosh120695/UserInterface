@@ -1,67 +1,55 @@
-import React from "react";
-import { Navbar, Nav, NavItem,NavDropdown, Glyphicon,MenuItem } from 'react-bootstrap';
-import axios from 'axios'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from 'material-ui/styles';
+import Drawer from 'material-ui/Drawer';
+import AppBar from 'material-ui/AppBar';
+import Toolbar from 'material-ui/Toolbar';
+import List,{ ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import Typography from 'material-ui/Typography';
+import Divider from 'material-ui/Divider';
+import Button from 'material-ui/Button';
 
 
-class Header extends React.Component {
-    render() {
-        return (
-            <Navbar inverse collapseOnSelect>
-                <Navbar.Header>
-                    <Navbar.Brand>
-                        <a href="/">MLAS</a>
-                    </Navbar.Brand>
-                    <Navbar.Toggle />
-                </Navbar.Header>
-                <Navbar.Collapse>
-                    <Nav>
-                        <NavItem eventKey={1} href="#">
-                            Link
-                        </NavItem>
-                        <NavItem eventKey={2} href="#">
-                            Link
-                        </NavItem>
-                        <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                            <MenuItem eventKey={3.1}>Action</MenuItem>
-                            <MenuItem eventKey={3.2}>Another action</MenuItem>
-                            <MenuItem eventKey={3.3}>Something else here</MenuItem>
-                            <MenuItem divider />
-                            <MenuItem eventKey={3.3}>Separated link</MenuItem>
-                        </NavDropdown>
-                    </Nav>
-                    <Nav pullRight>
-                        <NavItem eventKey={1} href="/users/sign_out" data-method="delete" rel="nofollow">
-                            Sign Out
-                            {/*<a href="/users/sign_out" data-method="delete" rel="nofollow" className="navbar-brand">Sign Out</a>*/}
-                        </NavItem>
-                    </Nav>
-                </Navbar.Collapse>
-            </Navbar>
-        );
-    }
-     // sign_out(){
-     //  console.log('clicked')
-     //    let token=$( 'meta[name="csrf-token"]' ).attr( 'content' );
-     //  console.log(token)
-     //     axios({
-     //         method:"delete",
-     //         url:'/users/sign_out',
-     //         headers:{'X-CSRF-Token':token}
-     //     })
-     //         .then(function (response) {
-     //             console.log(response);
-     //             console.log('success');
-     //             location.reload()
-     //
-     //         })
-     //         .catch(function (error) {
-     //             console.log(error);
-     //             location.reload()
-     //
-     //         });
-     //
-     // }
+
+const drawerWidth = 240;
+
+const styles = theme => ({
+    appBar: {
+        zIndex: theme.zIndex.drawer + 1,
+    },
+    drawerPaper: {
+        position: 'relative',
+        width: drawerWidth,
+    },
+    content: {
+        flexGrow: 1,
+        backgroundColor: theme.palette.background.default,
+        padding: theme.spacing.unit * 3,
+        minWidth: 0, // So the Typography noWrap works
+    },
+    flex: {
+        flex: 1,
+    },
+    toolbar: theme.mixins.toolbar,
+});
+
+function Header(props) {
+    const { classes } = props;
+
+    return (
+            <AppBar position="absolute" className={classes.appBar}>
+                <Toolbar>
+                    <Typography variant="title" color="inherit" noWrap className={classes.flex}>
+                        Clipped drawer
+                    </Typography>
+                    <Button color="inherit" href="/users/sign_out" data-method="delete">Log Out</Button>
+                </Toolbar>
+            </AppBar>
+    );
 }
 
+Header.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
 
-export default Header
+export default withStyles(styles)(Header);
