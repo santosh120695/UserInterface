@@ -7,6 +7,8 @@ import {withStyles} from "material-ui/styles/index";
 import PropTypes from "prop-types";
 import Button from 'material-ui/Button';
 import Grid from 'material-ui/Grid';
+import HorizontalLinearStepper from './stepper.jsx'
+import SimpleCard from './simple_card.jsx'
 
 
 const styles = theme => ({
@@ -36,6 +38,18 @@ function  App(props) {
          </Button>
          </Grid>
          </Grid>
+         </Grid>
+         <HorizontalLinearStepper/>
+         <Grid container>
+             <Grid item xs={3}>
+                 <SimpleCard/>
+             </Grid>
+             <Grid item xs={3}>
+                 <SimpleCard/>
+             </Grid>
+             <Grid item xs={3}>
+                 <SimpleCard/>
+             </Grid>
          </Grid>
      </div>
     )

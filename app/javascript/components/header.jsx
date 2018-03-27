@@ -43,6 +43,7 @@ function Header(props) {
                         MLAS
                     </Typography>
                     <Button color="inherit" href="/users/sign_out" data-method="delete">Log Out</Button>
+                    <Button color="inherit" href="#" data-method="delete">About Us</Button>
                 </Toolbar>
             </AppBar>
     );
