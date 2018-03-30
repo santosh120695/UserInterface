@@ -4,7 +4,8 @@ import { withStyles } from 'material-ui/styles';
 import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
-
+import SimpleCard from './simple_card.jsx'
+import FirstStep1 from "./first_step";
 const styles = theme => ({
     root: {
         width: '90%',
@@ -16,16 +17,17 @@ const styles = theme => ({
         marginTop: theme.spacing.unit,
         marginBottom: theme.spacing.unit,
     },
+
 });
 
 function getSteps() {
-    return ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+    return ['Select Model', 'Create an ad group', 'Create an ad'];
 }
 
 function getStepContent(step) {
     switch (step) {
         case 0:
-            return 'Select campaign settings...';
+            return <FirstStep1/>;
         case 1:
             return 'What is an ad group anyways?';
         case 2:
@@ -113,10 +115,11 @@ class HorizontalLinearStepper extends React.Component {
                         }
                         return (
                             <Step key={label} {...props}>
-                                <StepLabel {...labelProps}>{label}</StepLabel>
+                                <StepLabel {...labelProps}>{label}{index}</StepLabel>
                             </Step>
                         );
                     })}
+
                 </Stepper>
                 <div>
                     {activeStep === steps.length ? (
@@ -130,7 +133,8 @@ class HorizontalLinearStepper extends React.Component {
                         </div>
                     ) : (
                         <div>
-                            <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+                        <div>{getStepContent(activeStep)}</div>
+
                             <div>
                                 <Button
                                     disabled={activeStep === 0}

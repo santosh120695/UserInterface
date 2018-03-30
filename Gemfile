@@ -28,6 +28,7 @@ gem 'rails_admin'
 gem 'rails_admin_import'
 gem 'webpacker', '~> 3.3'
 gem "font-awesome-rails"
+gem 'paperclip'
 gem 'pg'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'

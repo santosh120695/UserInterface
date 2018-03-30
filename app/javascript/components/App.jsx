@@ -9,6 +9,7 @@ import Button from 'material-ui/Button';
 import Grid from 'material-ui/Grid';
 import HorizontalLinearStepper from './stepper.jsx'
 import SimpleCard from './simple_card.jsx'
+import SimpleModal from './modal.jsx'
 
 
 const styles = theme => ({
@@ -33,9 +34,7 @@ function  App(props) {
              direction='row'
              justify='flex-end'
          >
-         <Button variant="raised" color="primary" className={classes.button} >
-             Start
-         </Button>
+             <SimpleModal/>
          </Grid>
          </Grid>
          </Grid>
@@ -51,6 +50,9 @@ function  App(props) {
                  <SimpleCard/>
              </Grid>
          </Grid>
+         <div>
+
+         </div>
      </div>
     )
 }
